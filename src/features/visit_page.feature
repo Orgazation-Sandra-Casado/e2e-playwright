@@ -1,4 +1,4 @@
 Feature: Open a URL
 
-  Scenario: Open BootcampQA homepage
+  Scenario: Open SauceDemo homepage
     When I navigate to main page
