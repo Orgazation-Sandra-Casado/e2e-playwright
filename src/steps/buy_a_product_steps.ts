@@ -3,7 +3,7 @@ import exp from 'constants';
 import { expect } from 'playwright/test';
 
 When('the user add to cart {string}', async function (itemName: string) {
-    await this.page.locator('[data-test="add-to-cart-'+itemName.toLowerCase().replaceAll(" ","-")+'"]').click();
+    await this.page.locator('[data-test="add-to-cart-' + itemName.toLowerCase().replaceAll(" ", "-") + '"]').click();
 
 })
 
@@ -46,3 +46,13 @@ Then('the user should see the buy complete message {string}', async function (me
 Then('the user should see the error message {string}', async function (errorMessage: string) {
     await expect(this.page.locator('[data-test="error"]')).toContainText(errorMessage);
 })
+
+Then('the user click continue shopping button', async function () {
+    await this.page.locator('[data-test="continue-shopping"]').click();
+})
+
+Then('the user should see the products section', async function () {
+    await expect(this.page.locator('[data-test="title"]')).toBeVisible();
+})
+
+

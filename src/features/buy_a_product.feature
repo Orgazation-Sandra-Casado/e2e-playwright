@@ -1,8 +1,9 @@
 Feature: Buy a product
 
+ Background:
+    Given the user is on SauceDemo login page
   @buyproduct
   Scenario: Buy a product
-    Given the user is on SauceDemo login page
     When the user fill username with "standard_user"
     And the user fill password with "secret_sauce"
     And the user press login button
@@ -17,7 +18,6 @@ Feature: Buy a product
     Then the user should see the buy complete message "Thank you for your order!"
 
   Scenario: Buy a product without fill personal dates
-  Given the user is on SauceDemo login page
     When the user fill username with "standard_user"
     And the user fill password with "secret_sauce"
     And the user press login button
@@ -29,3 +29,12 @@ Feature: Buy a product
     And the user press continue button
     Then the user should see the error message "Error: First Name is required"
 
+  Scenario: Buy a product and continue shopping
+   When the user fill username with "standard_user"
+    And the user fill password with "secret_sauce"
+    And the user press login button
+    And the user add to cart "Sauce Labs Backpack"
+    And the user click on the cart
+    Then the user should see "Sauce Labs Backpack" product on the cart
+    And the user click continue shopping button
+    Then the user should see the products section
