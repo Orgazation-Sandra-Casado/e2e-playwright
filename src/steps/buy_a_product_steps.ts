@@ -42,3 +42,7 @@ Then('the user press finish', async function () {
 Then('the user should see the buy complete message {string}', async function (message: string) {
     await expect(this.page.locator('[data-test="complete-header"]')).toContainText(message);
 })
+
+Then('the user should see the error message {string}', async function (errorMessage: string) {
+    await expect(this.page.locator('[data-test="error"]')).toContainText(errorMessage);
+})
