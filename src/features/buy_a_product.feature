@@ -1,7 +1,8 @@
 Feature: Buy a product
 
- Background:
+  Background:
     Given the user is on SauceDemo login page
+
   @buyproduct
   Scenario: Buy a product
     When the user fill username with "standard_user"
@@ -30,7 +31,7 @@ Feature: Buy a product
     Then the user should see the error message "Error: First Name is required"
 
   Scenario: Buy a product and continue shopping
-   When the user fill username with "standard_user"
+    When the user fill username with "standard_user"
     And the user fill password with "secret_sauce"
     And the user press login button
     And the user add to cart "Sauce Labs Backpack"
@@ -38,3 +39,13 @@ Feature: Buy a product
     Then the user should see "Sauce Labs Backpack" product on the cart
     And the user click continue shopping button
     Then the user should see the products section
+
+  Scenario: Buy a product and remove it
+    When the user fill username with "standard_user"
+    And the user fill password with "secret_sauce"
+    And the user press login button
+    And the user add to cart "Sauce Labs Backpack"
+    And the user click on the cart
+    Then the user should see "Sauce Labs Backpack" product on the cart
+    And the user click in remove button
+    Then the product will be removed from the cart

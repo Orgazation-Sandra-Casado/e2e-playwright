@@ -55,4 +55,14 @@ Then('the user should see the products section', async function () {
     await expect(this.page.locator('[data-test="title"]')).toBeVisible();
 })
 
+Then('the user click in remove button', async function () {
+    await this.page.locator('[data-test="remove-sauce-labs-backpack"]').click();
+})
+
+Then('the product will be removed from the cart', async function () {
+    await this.page.locator('[data-test="cart-list"]').click();
+})
+
+
+
 
