@@ -3,7 +3,7 @@
 > Typescript and Playwright with Cucumber e2e testing project.
 
 ### 💻 Description
-E2e tests for https://bootcamp-qa.com
+E2e tests for https://www.saucedemo.com/
 
 Covered Features:
 - Visit Home Page
@@ -35,6 +35,14 @@ With Visual Studio Code:
 ## Run Playwright Code Generator
 npx playwright codegen playwright.dev
 
+## Run specific scenario
+1. Add tag to scenario in feature file
+2. Run command npm run test -- --tags '@tag'
+3. Run in debug mode npm run debug -- --tags '@tag'
+
+## Debug specific scenario
+1. npm run debug:desktop -- --tags '@tag'
+2. npm run debug:mobile -- --tags '@tag'
 
 ##  Run tests on CI with github Actions:
 1. This test are running after each push in the github repository or can be run manually (access required)
